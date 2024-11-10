@@ -1,0 +1,256 @@
+.profile-header {
+    background: var(--bg-secondary);
+    padding: 8rem 2rem 4rem;
+    margin-top: -4rem;
+}
+
+.profile-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 968px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.profile-sidebar {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    height: fit-content;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: block;
+    border: 4px solid var(--accent-color);
+}
+
+.profile-name {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.profile-title {
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-box {
+    text-align: center;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.profile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.btn-primary {
+    background: var(--accent-color);
+    color: white;
+    padding: 0.75rem;
+    border-radius: 50px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 0.75rem;
+    border-radius: 50px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: translateY(-2px);
+}
+
+.profile-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.profile-section {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-title i {
+    color: var(--accent-color);
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.skill-tag {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+}
+
+.gig-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.gig-card {
+    background: var(--bg-secondary);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.gig-card:hover {
+    transform: translateY(-5px);
+}
+
+.gig-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.gig-content {
+    padding: 1.5rem;
+}
+
+.gig-title {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.gig-price {
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.reviews {
+    margin-top: 1rem;
+}
+
+.review-card {
+    border-bottom: 1px solid var(--bg-secondary);
+    padding: 1.5rem 0;
+}
+
+.review-card:last-child {
+    border-bottom: none;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.reviewer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.reviewer-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.reviewer-info h4 {
+    margin-bottom: 0.25rem;
+}
+
+.reviewer-info p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.rating {
+    color: #ffd700;
+}
+
+.review-text {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.availability {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg-secondary);
+    border-radius: 50px;
+    width: fit-content;
+}
+
+.availability.available {
+    color: #4caf50;
+}
+
+.availability.busy {
+    color: #f44336;
+}

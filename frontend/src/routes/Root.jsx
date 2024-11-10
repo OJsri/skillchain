@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import '../styles/Root.css'
+import {
+    useWallet,
+  } from "@aptos-labs/wallet-adapter-react";
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design";
 
 const moduleName = import.meta.env.REACT_APP_MODULE_NAME;
@@ -7,15 +10,20 @@ const moduleAddress = import.meta.env.REACT_APP_MODULE_ADDRESS;
 
 export default ({ page, setPage, pageData, setPageData }) => {
     const [theme, setTheme] = useState('light');
+    const dappMode = !!window.dapp;
     const html = document.documentElement;
       
-  const switchTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
+    const switchTheme = () => {
+        const newTheme = theme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
 
-    html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-};
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    };
+
+
+    const { account, connected } = useWallet();
+    console.log(connected)
     useEffect(() => {
   
   // Check for saved theme preference
@@ -173,7 +181,7 @@ export default ({ page, setPage, pageData, setPageData }) => {
                 <li><button class={theme === 'light' ? 'fas fa-moon' : 'fas fa-sun'} id="themeToggle" onClick={() => switchTheme()}>
                 </button></li>
                 <li>
-                    <WalletSelector />
+                    {dapp ? <WalletSelector /> : <>Wallet not found</>}
                 </li>
             </ul>
         </nav>
@@ -210,7 +218,7 @@ export default ({ page, setPage, pageData, setPageData }) => {
                         <div class="stat-label">Projects</div>
                     </div>
                 </div>
-                <button>View Profile</button>
+                <button onClick={() => setPage('/gig')}>View Profile</button>
             </div>
             <div class="card">
                 <img src="" alt="Jane Smith" />
@@ -226,7 +234,7 @@ export default ({ page, setPage, pageData, setPageData }) => {
                         <div class="stat-label">Projects</div>
                     </div>
                 </div>
-                <button>View Profile</button>
+                <button onClick={() => setPage('/gig')}>View Profile</button>
             </div>
             <div class="card">
                 <img src="/api/placeholder/120/120" alt="Alex Johnson" />
@@ -242,7 +250,7 @@ export default ({ page, setPage, pageData, setPageData }) => {
                         <div class="stat-label">Projects</div>
                     </div>
                 </div>
-                <button>View Profile</button>
+                <button onClick={() => setPage('/gig')}>View Profile</button>
             </div>
         </div>
     </section>
